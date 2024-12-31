@@ -1,0 +1,465 @@
+/* General Reset */
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #f3b6f0;
+    color: #333;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: #90a4ae;
+    padding: 15px 20px;
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    max-width: 1200px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f3f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu .img {
+    width: 80px;
+}
+
+.menu-checkbox {
+    display: none;
+}
+
+.menu-toggle {
+    font-size: 2rem;
+    color: #1787f7;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    transition: transform 0.3s;
+}
+
+.menu-toggle:hover {
+    transform: rotate(180deg);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0 10px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: #e91e63;
+    transform: scale(1.1);
+}
+
+.nav-menu a.active {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.nav-menu a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #90a4ae;
+    transition: width 0.3s;
+    margin-top: 2px;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(179, 178, 178, 0.9);
+        border-top: 1px solid #f8f9fa;
+        padding: 10px 0;
+        z-index: 10;
+    }
+
+    .menu-checkbox:checked + .menu-toggle + .nav-menu {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .nav-menu a:hover {
+        background-color: #51f9ff;
+        color: #000;
+    }
+}
+
+/* Carousel */
+.carrusel {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 12px;
+    overflow: hidden;
+    position: relative;
+    background-color: #90a4ae;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-height: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #90a4ae;
+    border: none;
+    margin: 0 5px;
+}
+
+.carousel-indicators .active {
+    background-color: #e91e63;
+}
+
+/* Mission and Vision */
+.MV {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #90a4ae;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+}
+
+.mision, .vision {
+    text-align: center;
+    border: 1px solid #212222;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    flex: 1 1 45%;
+}
+
+.mision:hover, .vision:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Services */
+.precios {
+    background-color: #90a4ae;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.precios .pagos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #f3f3f7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.precios .servi-precio {
+    background-color: #a3d5ee;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgb(29, 28, 28);
+    transition: transform 0.3s ease;
+    flex: 1 1 30%; 
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .precios .servi-precio {
+        flex: 1 1 45%; 
+        margin: 5px; 
+        padding: 10px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .precios .servi-precio {
+        flex: 1 1 90%;
+        margin: 5px;
+        padding: 8px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .precios .servi-precio {
+        flex: 1 1 100%;
+        margin: 5px;
+        padding: 5px;
+        text-align: justify; 
+        font-size: 20px;
+    }
+}
+
+
+.precios .servi-precio:hover {
+    transform: scale(1.05);
+}
+
+.SERVICIOS {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px;
+}
+
+.SERVICIOS .div {
+    background-color: #90a4ae;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 35px;
+}
+
+.SERVICIOS .div img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.SERVICIOS .div img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1024px) {
+    .SERVICIOS {
+        gap: 15px;
+    }
+
+    /*.SERVICIOS .div img {
+        max-width: 250px;
+    }*/
+}
+
+@media (max-width: 768px) {
+    .SERVICIOS {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*.SERVICIOS .div img {
+        max-width: 200px;
+    }*/
+}
+
+@media (max-width: 480px) {
+    /* .SERVICIOS .div img {
+        max-width: 150px;
+    }*/
+}
+
+/* Footer */
+.footer {
+    background-color: #90a4ae;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 1200px;
+    text-align: center;
+    color: #333;
+}
+
+.footer .direc {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.Contacto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn a {
+    color: #000;
+    text-decoration: none;
+}
+
+.DERECHOS {
+    color: #b0bec5;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .MV {
+        flex-direction: column;
+    }
+
+    .SERVICIOS .div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .parra-ser {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    .carrusel {
+        margin: 10px;
+    }
+
+    .MV {
+        margin: 8px;
+    }
+
+    .mision, .vision {
+        margin: 15px;
+        text-align: justify;
+    }
+
+    .MV .mision p,
+    .MV .vision p {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+    .pagos .servi-precio{
+        flex-direction: column;
+    }
+
+    .SERVICIOS {
+        margin: 10px;
+    }
+
+    .SERVICIOS .div {
+        margin: 10px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .SERVICIOS .div img {
+        margin: 2px;
+        padding: 10px 20px;
+        box-shadow: none;
+    }
+
+    .SERVICIOS .img-fin {
+        margin-right: 50px;
+        padding-left: 50px;
+    }
+
+    .tit-servi {
+        font-size: 2rem;
+    }
+
+    .parra-ser {
+        font-size: 2.5rem;
+    }
+
+    .footer .direc {
+        margin: 0;
+    }
+
+    .Contacto {
+        flex-direction: column;
+        align-items: center;
+    }
+}
